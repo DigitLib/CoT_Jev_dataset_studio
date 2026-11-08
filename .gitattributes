@@ -1,0 +1,20 @@
+# Auto detect text files and perform LF normalization
+* text=auto eol=lf
+
+# Python files
+*.py text diff=python
+*.md text
+*.json text
+*.jsonl text
+*.txt text
+*.yaml text
+*.yml text
+*.sql text
+
+# Binary files
+*.pdf binary
+*.parquet binary
+*.safetensors binary
+*.png binary
+*.jpg binary
+
