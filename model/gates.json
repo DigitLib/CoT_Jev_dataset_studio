@@ -1,0 +1,86 @@
+{
+ "problems": 600,
+ "s1_temperature": 1.24,
+ "system1": {
+  "root_accuracy": 0.8133,
+  "majority_baseline": 0.3833,
+  "ece_raw": 0.046,
+  "ece_calibrated": 0.0306,
+  "accuracy_by_family": {
+   "choice": 0.7523,
+   "horn": 0.8034,
+   "horn_inconsistent": 0.5439,
+   "horn_refuted": 0.8043,
+   "nested_policy": 0.974
+  }
+ },
+ "invariance_max_abs_diff": 5.960464477539063e-08,
+ "search": {
+  "order_sensitive_share": 0.1957,
+  "budget_16": {
+   "all": {
+    "problems": 230,
+    "solve_rate_neural": 0.8304,
+    "solve_rate_fixed": 0.7957,
+    "total_nodes_neural": 426,
+    "total_nodes_fixed": 787,
+    "nodes_ratio": 0.5413
+   },
+   "order_sensitive": {
+    "problems": 45,
+    "solve_rate_neural": 0.9778,
+    "solve_rate_fixed": 0.7778,
+    "total_nodes_neural": 72,
+    "total_nodes_fixed": 428,
+    "nodes_ratio": 0.1682
+   }
+  },
+  "budget_64": {
+   "all": {
+    "problems": 230,
+    "solve_rate_neural": 1.0,
+    "solve_rate_fixed": 0.9957,
+    "total_nodes_neural": 1438,
+    "total_nodes_fixed": 2338,
+    "nodes_ratio": 0.6151
+   },
+   "order_sensitive": {
+    "problems": 45,
+    "solve_rate_neural": 1.0,
+    "solve_rate_fixed": 0.9778,
+    "total_nodes_neural": 118,
+    "total_nodes_fixed": 1020,
+    "nodes_ratio": 0.1157
+   }
+  }
+ },
+ "soundness": {
+  "proofs": 352,
+  "unverified_trees": [],
+  "n_unverified": 0,
+  "unchecked_certificates": [],
+  "n_unchecked": 0,
+  "proofs_of_unprovable": [],
+  "n_false": 0
+ },
+ "gates": {
+  "G1_soundness": {
+   "must": true,
+   "pass": true
+  },
+  "G2_search": {
+   "must": false,
+   "pass": true,
+   "note": ""
+  },
+  "G3_system1": {
+   "must": false,
+   "pass": true
+  },
+  "G4_invariance": {
+   "must": true,
+   "pass": true
+  }
+ },
+ "all_must_pass": true
+}

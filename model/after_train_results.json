@@ -1,0 +1,174 @@
+{
+ "test_jev": {
+  "exit": 0,
+  "seconds": 2.7,
+  "tail": [
+   "Testing nanoGentzen-v3 APIs (/v1/decide & /v1/systemone) at: in-process (jev_server.py)",
+   "===========================================================================",
+   " [PASS] Test 1: Constructive Proof + Curry-Howard Term + Strict Relevance",
+   " [PASS] Test 2: Constructive Refutation (Negation Derivation)",
+   " [PASS] Test 3: Saul Kripke Open Tableau Countermodel Extraction",
+   " [PASS] Test 4: Categorical Choice Routing + Formal Proof",
+   " [PASS] Test 5: Ordinal Score Tier Derivation + Fast Subformula Pruning",
+   " [PASS] Test 6: System-1 Epistemic Gate (Latency: 1.66 ms)",
+   ""
+  ]
+ },
+ "test_trained_model": {
+  "exit": 0,
+  "seconds": 3.6,
+  "tail": [
+   "== exported weights: PyTorch vs NumPy",
+   " [PASS] rule / pivot logits and epistemic probabilities agree (max |diff| < 1e-3)",
+   "    max |diff|: {'rule': '6.20e-06', 'pivot': '2.60e-05', 'epistemic': '6.56e-07'}",
+   "",
+   "== server",
+   " [PASS] word tokenizer selected from config",
+   " [PASS] s1_temperature taken from config",
+   " [PASS] System 1 reports 4 classes summing to 1",
+   "    System 1 on a provable policy: {'false': 0.0, 'undecided': 0.0053, 'true': 0.9938, 'inconsistent': 0.0009}",
+   "",
+   "== invariance",
+   " [PASS] System 1 unchanged under renaming + reordering (200 sequents)",
+   "",
+   "== network on vs off",
+   " [PASS] same verdict with and without the network (300 random sequents)",
+   "",
+   "ALL PASS"
+  ]
+ },
+ "test_kernel": {
+  "exit": 0,
+  "seconds": 1.5,
+  "tail": [
+   "chain  8 hops: proved+verified=True  2.8 ms",
+   "chain 16 hops: proved+verified=True  8.0 ms",
+   "chain 32 hops: proved+verified=True  26.3 ms",
+   "chain 64 hops: proved+verified=True  103.2 ms",
+   "(p=>q)|(q=>p): countermodel worlds = 3",
+   "",
+   "4000 random sequents, 6595 rule applications checked, 2311 unprovable, countermodel found for 2311; 1.5s",
+   "failures: {'decision': 0, 'verify': 0, 'rule_soundness': 0, 'countermodel_invalid': 0, 'timeouts': 0}"
+  ]
+ },
+ "test_search": {
+  "exit": 0,
+  "seconds": 3.9,
+  "tail": [
+   "random: 1499/1500 decided correctly by neural search alone, 1 truncated (backstop decides these), errors 0, 1s",
+   "shuffled chain  4 hops + 10 distractors: 5/5 proved at budget 64 (old search: 6/10 at 4 hops)",
+   "shuffled chain  8 hops + 10 distractors: 5/5 proved at budget 64 (old search: 6/10 at 4 hops)",
+   "shuffled chain 16 hops + 10 distractors: 5/5 proved at budget 64 (old search: 6/10 at 4 hops)",
+   "shuffled chain 32 hops + 10 distractors: 5/5 proved at budget 64 (old search: 6/10 at 4 hops)",
+   "~sanctioned, (~sanctioned => approved) |- approved: PROVED (old search: failed)",
+   "61 premises (beyond the model window): PROVED | window overflow flagged: False"
+  ]
+ },
+ "test_certificates": {
+  "exit": 0,
+  "seconds": 1.2,
+  "tail": [
+   "1220 proofs: certificate accepted by checker 1220/1220; free hypotheses suffice 1220/1220; minimal_witnesses prove and are irredundant 1220/1220; tampered types rejected 1139/1139",
+   "distinct (term, context) pairs shared by different sequents: 0",
+   "",
+   "example: {",
+   " \"context\": {",
+   "  \"h1\": \"((is_adult & kyc_passed) => approved)\",",
+   "  \"h2\": \"distractor\",",
+   "  \"h3\": \"is_adult\",",
+   "  \"h4\": \"kyc_passed\"",
+   " },",
+   " \"type\": \"approved\",",
+   " \"term_str\": \"let d3:(is_adult => (kyc_passed => approved)) = (\u03bbc1:is_adult. (\u03bbd2:kyc_passed. (h1 \u27e8c1, d2\u27e9))) in let d4:(kyc_passed => approved) = (d3 h3) in let d5:approved = (d4 h4) in d5\",",
+   " \"free_hypotheses\": [",
+   "  \"h1\",",
+   "  \"h3\",",
+   "  \"h4\"",
+   " ],",
+   " \"checked\": true",
+   "}",
+   "1.2s"
+  ]
+ },
+ "test_api": {
+  "exit": 0,
+  "seconds": 5.2,
+  "tail": [
+   " [PASS] ~sanctioned, (~sanctioned => approved) |- approved -> PROVEN_TRUE (failed before)",
+   " [PASS] 16-hop chain at budget 64 -> PROVEN_TRUE",
+   " [PASS] 64-hop chain -> PROVEN_TRUE via backstop",
+   " [PASS] UNDECIDED: answer is null, missing_facts = ['kyc_passed']",
+   " [PASS] UNDECIDED: countermodel present",
+   " [PASS] score levels [0,5,10]: highest provable tier is 10",
+   " [PASS] choice with two provable options -> MULTIPLE_PROVEN",
+   " [PASS] exclusive options both provable -> INCONSISTENT_PREMISES",
+   " [PASS] proven answer reports probability 1.0",
+   " [PASS] '<->' is a biconditional",
+   " [PASS] malformed rule rejected with HTTP 400: 'kyc & (x => approved'",
+   " [PASS] malformed rule rejected with HTTP 400: 'kyc => approved @'",
+   " [PASS] malformed rule rejected with HTTP 400: 'if a then b. if b then c'",
+   "",
+   "== Phase 3 certificates in API responses",
+   " [PASS] noul PROVEN_TRUE carries a certificate the checker accepts",
+   " [PASS] relevance has minimal_witnesses",
+   " [PASS] noul PROVEN_FALSE certificate proves ~approve",
+   " [PASS] choice PROVEN carries a checked certificate",
+   " [PASS] score PROVEN carries a checked certificate",
+   "",
+   "== random API soundness vs reference prover (full premise set)",
+   " [PASS] 400 random policies: 0 unsound PROVEN / INCONSISTENT answers (47 inconsistent detected)",
+   "",
+   "ALL PASS"
+  ]
+ },
+ "eval_gates": {
+  "exit": 0,
+  "seconds": 10.5,
+  "tail": [
+   " \"gates\": {",
+   "  \"G1_soundness\": {",
+   "   \"must\": true,",
+   "   \"pass\": true",
+   "  },",
+   "  \"G2_search\": {",
+   "   \"must\": false,",
+   "   \"pass\": true,",
+   "   \"note\": \"\"",
+   "  },",
+   "  \"G3_system1\": {",
+   "   \"must\": false,",
+   "   \"pass\": true",
+   "  },",
+   "  \"G4_invariance\": {",
+   "   \"must\": true,",
+   "   \"pass\": true",
+   "  }",
+   " },",
+   " \"all_must_pass\": true",
+   "}",
+   "G1_soundness     PASS  (must)",
+   "G2_search        PASS",
+   "G3_system1       PASS",
+   "G4_invariance    PASS  (must)"
+  ]
+ },
+ "gates": {
+  "G1_soundness": {
+   "must": true,
+   "pass": true
+  },
+  "G2_search": {
+   "must": false,
+   "pass": true,
+   "note": ""
+  },
+  "G3_system1": {
+   "must": false,
+   "pass": true
+  },
+  "G4_invariance": {
+   "must": true,
+   "pass": true
+  }
+ }
+}

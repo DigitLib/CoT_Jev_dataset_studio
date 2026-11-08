@@ -1,0 +1,45 @@
+{
+  "model_type": "nanogentzen",
+  "architectures": [
+    "GentzenPolicyValueModel"
+  ],
+  "auto_map": {
+    "AutoConfig": "configuration_nanogentzen.GentzenConfig",
+    "AutoModel": "modeling_nanogentzen.GentzenPolicyValueModel"
+  },
+  "format_version": 4,
+  "tokenizer_type": "word",
+  "input_format": "normalized_canonical",
+  "rule_classes": [
+    "R_OR_1",
+    "R_OR_2",
+    "L_IMP_IMP",
+    "L_IMP_NOT",
+    "L_NOT_IMP",
+    "L_NOT_NOT"
+  ],
+  "epistemic_labels": [
+    "false",
+    "undecided",
+    "true",
+    "inconsistent"
+  ],
+  "vocab_size": 82,
+  "block_size": 256,
+  "n_layer": 6,
+  "n_head": 8,
+  "n_embd": 256,
+  "num_rules": 6,
+  "max_antecedents": 32,
+  "use_pointer_pivot": true,
+  "pointer_dim": 64,
+  "num_epistemic_classes": 4,
+  "pad_token_id": 0,
+  "space_token_id": 3,
+  "comma_token_id": 12,
+  "turnstile_token_ids": [
+    5
+  ],
+  "s1_temperature": 1.24,
+  "search_confidence_threshold": 0.3
+}
