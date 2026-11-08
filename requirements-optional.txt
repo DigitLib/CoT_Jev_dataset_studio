@@ -1,0 +1,5 @@
+# Optional components. Not needed for the desktop test.
+vllm>=0.4.0        # Linux + NVIDIA only; on Windows use Ollama / LM Studio, or vLLM inside WSL2
+surya-ocr          # alternative layout engine (Surya)
+knwler             # alternative KG extraction engine
+scipy              # exact erf for the NumPy backend (a 1.5e-7 approximation is used otherwise)

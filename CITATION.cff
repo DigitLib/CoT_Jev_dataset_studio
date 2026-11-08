@@ -1,0 +1,18 @@
+cff-version: 1.2.0
+message: "If you use this software or the datasets it produces, please cite it and the ClearCoT paper."
+title: "nanoGentzen ClearCoT & Jev Decision Studio"
+version: 0.1.0
+license: MIT
+authors:
+  - family-names: Sagicc
+    given-names: Andrija
+references:
+  - type: article
+    title: "ClearCoT: Towards Clear, Coherent and Efficient Chain-of-Thought via Formal Logic Verification"
+    year: 2025
+    publisher:
+      name: Zenodo
+    authors:
+      - family-names: Sagicc
+        given-names: Andrija
+    doi: 10.5281/zenodo.19409889
