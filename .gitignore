@@ -1,0 +1,80 @@
+# =====================================================================
+# Git Ignore for nanoGentzen ClearCoT & Jev Studio
+# =====================================================================
+
+# Byte-compiled / optimized / Python caches
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Environments
+.venv/
+venv/
+ENV/
+env/
+env.bak/
+venv.bak/
+
+# Streamlit
+.streamlit/secrets.toml
+
+# IDE & OS files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# Large Model Checkpoints & Hugging Face Repositories (>100MB)
+Occam-2B-CCoT/
+Spark-X2.6-4B/
+Spark-X2.6-4B-vllm/
+vllm_model/*
+!vllm_model/README.md
+# model/ (nanoGentzen v4, ~19 MB) IS shipped. model_v4 is an old local alias (symlink) of model/.
+model_v4
+*.safetensors-*-of-*
+*.bin
+*.pt
+*.pth
+
+# Large Reference Datasets (>100MB)
+Jev_dts/
+
+# Local Working SQLite Databases
+data/*.db
+data/*.db-journal
+data/*.db-wal
+data/*.db-shm
+
+# Local Uploaded Documents (Preserve folder and sample)
+data/uploads/*
+!data/uploads/.gitkeep
+!data/uploads/clearcot-1.pdf
+
+# Local Exported Datasets (generated at runtime)
+data/exports/*
+!data/exports/.gitkeep
+!data/exports/README.md
+!data/exports/samples/
+
+# Knowledge Graph runtime caches
+data/kg/*
+!data/kg/.gitkeep
+
+# Internal documents and local backups
+nanoGentzen v4 — Model Handoff.pdf
+docs/internal/
+data/_backup_*/
+data/vllm_server.pid
+
+# Unit Test & Coverage Caches
+.pytest_cache/
+.coverage
+htmlcov/
+*.log
+scratch/
+
